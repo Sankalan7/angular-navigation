@@ -1,9 +1,9 @@
 .sidebar-open{
     /* width: calc(100vw-250px); */
-    padding-left: 255px;
+    padding-left: 250px;
 }
 
 .sidebar-collapsed{
     /* width: calc(100vw-75px); */
-    padding-left: 80px;
+    padding-left: 75px;
 }
