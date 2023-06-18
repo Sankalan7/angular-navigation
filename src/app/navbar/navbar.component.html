@@ -5,9 +5,11 @@
           <li [ngClass]="{
             'hover:bg-primary-active-tab': lightTheme,
             'hover:bg-dark-active-tab': !lightTheme
-          }" class="cursor-pointer py-3 px-4 rounded-md" (mouseover)="toggleBaseHover()" (mouseleave)="toggleBaseHover()">
+          }"
+          [class.bg-logo-green-500]="baseHover"
+           class="cursor-pointer py-3 px-4 rounded-md" (click)="toggleBaseHover()">
           Base
-              <div class="absolute top-[56px] px-5 py-3 z-50 rounded-lg bg-dark-active-tab dark:bg-primary-active-tab transition-all duration-300" *ngIf="baseHover===true">
+              <div class="absolute top-[62px] px-5 py-3 z-50 rounded-lg bg-dark-active-tab dark:bg-primary-active-tab transition-all duration-300" *ngIf="baseHover===true">
                 <ul class="felx flex-col space-y-4">
                   <li routerLink="/dashboard" class=" text-dark-text text-lg">Dashboard</li>
                   <li routerLink="/settings" class=" text-dark-text text-lg">Settings</li>

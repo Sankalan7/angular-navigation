@@ -8,9 +8,9 @@
         </span>
         <span class="pt-1 text-xl">Angular navigation</span>
       </p>
-      <p class="cursor-pointer" (click)="toggleSidebarOpen()"><i class="fa fa-times"></i></p>
+      <p class="cursor-pointer animate-rotation mt-2" (click)="toggleSidebarOpen()"><i class="fa fa-times"></i></p>
     </div>
-    <p class="cursor-pointer" (click)="toggleSidebarOpen()" *ngIf="!sidebarOpen"><i class="fa fa-bars"></i></p>
+    <p class="cursor-pointer animate-rubberband" (click)="toggleSidebarOpen()" *ngIf="!sidebarOpen"><i class="fa fa-bars"></i></p>
   </div>
   <div class="h-full flex flex-col justify-between py-2">
     <div class="mt-4 font-maven">

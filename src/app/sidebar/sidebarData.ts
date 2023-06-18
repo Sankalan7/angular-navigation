@@ -1,7 +1,7 @@
 export const sidebarData = [
   {
     routeLink: 'dashboard',
-    icon: 'fa fa-chart-bar',
+    icon: 'fa fa-pie-chart',
     label: 'Dashboard',
   },
   {

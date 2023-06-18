@@ -31,6 +31,47 @@ module.exports = {
         cormorant: "'Cormorant Garamond', serif",
         roboto: "'Roboto Condensed', sans-serif",
       },
+      keyframes: {
+        flipHorizontal: {
+          "50%": { transform: "rotateY(180deg)" },
+        },
+        rotation: {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        rubberband: {
+          from: {
+            transform: "scale3d(1, 1, 1)",
+          },
+          "30%": {
+            transform: "scale3d(1.25, 0.75, 1)",
+          },
+          "40%": {
+            transform: "scale3d(0.75, 1.25, 1)",
+          },
+          "50%": {
+            transform: "scale3d(1.15, 0.85, 1)",
+          },
+          "65%": {
+            transform: "scale3d(0.95, 1.05, 1)",
+          },
+          "75%": {
+            transform: "scale3d(1.05, 0.95, 1)",
+          },
+          to: {
+            transform: "scale3d(1, 1, 1)",
+          },
+        },
+      },
+      animation: {
+        hflip: "flipHorizontal 2s",
+        rotation: "rotation 2s",
+        rubberband: "rubberband 2s",
+      },
     },
   },
   plugins: [],
