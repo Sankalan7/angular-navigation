@@ -8,11 +8,15 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   constructor(private router: Router) {}
+  lightTheme: boolean = true;
+  toggleLightTheme(lightTheme: any) {
+    this.lightTheme = lightTheme;
+  }
   isAuthRoute() {
     return this.router.url === '/login' || this.router.url === '/register';
   }
   sidebarOpen: boolean = true;
-  toggleSidebar(sidebarOpen: boolean) {
+  toggleSidebar(sidebarOpen: any) {
     this.sidebarOpen = sidebarOpen;
   }
 }

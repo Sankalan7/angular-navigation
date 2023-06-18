@@ -1,21 +1,22 @@
-<div class="absolute w-[100vw] h-[4rem] items-center bg-[#1f3164] transition-all duration-500" [ngClass]="sidebarOpen?'sidebar-open':'sidebar-collapsed'">
+<div class="absolute w-[100vw] h-[4rem] items-center bg-primary dark:bg-dark-primary transition-all duration-500" [ngClass]="{ 'pl-[255px]': sidebarOpen, 'pl-[80px]': !sidebarOpen, dark: !lightTheme }">
     <div class="items-center p-4 w-full h-full flex justify-between">
-      <div class="font-roboto text-white font-bold text-md flex items-center">
+      <div class="font-roboto text-text dark:text-dark-text font-bold text-md flex items-center">
         <ul class="flex space-x-2">
-            <li class="cursor-pointer py-3 px-4 hover:bg-[#3351a3] rounded-md" (mouseover)="toggleBaseHover()" (mouseleave)="toggleBaseHover()">Base
-              <div class="absolute top-[56px] px-5 py-3 z-50 rounded-lg bg-[#3351a3] transition-all duration-300" *ngIf="baseHover===true">
+          <li [ngClass]="{
+            'hover:bg-primary-active-tab': lightTheme,
+            'hover:bg-dark-active-tab': !lightTheme
+          }" class="cursor-pointer py-3 px-4 rounded-md" (mouseover)="toggleBaseHover()" (mouseleave)="toggleBaseHover()">
+          Base
+              <div class="absolute top-[56px] px-5 py-3 z-50 rounded-lg bg-dark-active-tab dark:bg-primary-active-tab transition-all duration-300" *ngIf="baseHover===true">
                 <ul class="felx flex-col space-y-4">
-                  <li routerLink="/dashboard" class="text-white text-lg">Dashboard</li>
-                  <li routerLink="/settings" class="text-white text-lg">Settings</li>
+                  <li routerLink="/dashboard" class=" text-dark-text text-lg">Dashboard</li>
+                  <li routerLink="/settings" class=" text-dark-text text-lg">Settings</li>
                 </ul>
               </div>
             </li>
-            
-            <!-- <li routerLink="/settings" class="cursor-pointer py-2 px-4 hover:bg-[#3351a3] rounded-md">Settings</li> -->
-            
         </ul>
       </div>
-      <div class="rounded-full border border-white overflow-hidden flex items-center">
+      <div class="rounded-full border border-avatar-border overflow-hidden flex items-center">
         <img
           class="w-10 h-10 object-cover object-center"
           src="https://source.unsplash.com/random?avatar,men"

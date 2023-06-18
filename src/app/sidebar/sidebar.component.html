@@ -1,9 +1,9 @@
-<div class="fixed left-0 h-[100vh] flex flex-col z-50 bg-[#1f3164] overflow-y-auto transition-all duration-500" [ngClass]="sidebarOpen?'w-[250px]':'w-[75px]'">
-  <div class="h-[4rem] flex items-center justify-center text-white font-yanone text-center mx-4 border-b border-dashed border-gray-500">
+<div class="fixed left-0 h-[100vh] flex flex-col z-50 bg-primary dark:bg-dark-primary overflow-y-auto transition-all duration-500" [ngClass]="sidebarOpen?'w-[250px]':'w-[75px]'">
+  <div class="h-[4rem] flex items-center justify-center text-text dark:text-dark-text font-yanone text-center mx-4 border-b border-dashed border-secondary">
     <div class="items-center w-full h-full flex justify-between px-2" *ngIf="sidebarOpen">
       <p class="text-xl flex justify-center items-center space-x-4">
         <!-- <i class="fa fa-user text-green-500 mr-4"></i> -->
-        <span class="px-3 py-1 text-black text-xl font-maven font-bold bg-green-500 rounded-lg">
+        <span class="px-3 py-1 text-text dark:text-dark-text text-xl font-maven font-bold bg-logo-green-500 rounded-lg">
           A
         </span>
         <span class="pt-1 text-xl">Angular navigation</span>
@@ -14,12 +14,16 @@
   </div>
   <div class="h-full flex flex-col justify-between py-2">
     <div class="mt-4 font-maven">
-      <div class="pl-6 text-md text-gray-400 mb-2" *ngIf="sidebarOpen">
+      <div class="pl-6 text-md text-primary-gray mb-2" *ngIf="sidebarOpen">
         Base
       </div>
       <ul class="flex flex-col space-y-1 justify-center items-center" *ngFor="let item of data">
-        
-        <li [ngClass]="sidebarOpen?'w-[90%]':'w-[60%] justify-center pl-0 text-xl'" routerLink="/{{item.routeLink}}" class="cursor-pointer mx-6 text-center pl-4 flex space-x-4 py-2 text-sm text-white rounded-lg hover:bg-[#3f63c6]">
+        <li [ngClass]="sidebarOpen ? 'w-[90%] pl-4' : 'w-[50%] justify-center items-center pl-0 text-xl'"
+        routerLink="/{{item.routeLink}}"
+        class="cursor-pointer mx-6 text-center flex space-x-4 py-2 text-sm text-text dark:text-dark-text rounded-lg"
+        [class.hover:bg-primary-active-tab]="lightTheme"
+        [class.hover:bg-dark-active-tab]="!lightTheme">
+
           <span><i class={{item.icon}}></i></span>
           <span *ngIf="sidebarOpen">{{item.label}}</span>
         </li>
@@ -27,16 +31,20 @@
     </div>
     <div class="mt-4 font-maven">
       <ul class="flex flex-col space-y-1 justify-center items-center">
-      <li (click)="toggleTheme()" [ngClass]="sidebarOpen?'w-[90%]':'w-[60%] justify-center pl-0 text-xl'" class="cursor-pointer mx-6 text-center pl-4 flex space-x-4 py-2 text-sm text-white rounded-lg hover:bg-[#3f63c6]">
-        <span *ngIf="lightTheme"><i class="fa fa-sun"></i></span>
-        <span *ngIf="!lightTheme"><i class="fa fa-moon"></i></span>
-        <div *ngIf="sidebarOpen">
-          
-          <span *ngIf="lightTheme">Light Theme</span>
-          <span *ngIf="!lightTheme">Dark Theme</span>
-        </div>
-      </li>
-    </ul>
+        <li [ngClass]="sidebarOpen ? 'w-[90%] pl-4' : 'w-[50%] justify-center items-center pl-0 text-xl'"
+        (click)="toggleTheme()"
+        class="cursor-pointer mx-6 text-center flex space-x-4 py-2 text-sm text-text dark:text-dark-text rounded-lg"
+        [class.hover:bg-primary-active-tab]="lightTheme"
+        [class.hover:bg-dark-active-tab]="!lightTheme">
+          <span *ngIf="!lightTheme"><i class="fa fa-sun"></i></span>
+          <span *ngIf="lightTheme"><i class="fa fa-moon"></i></span>
+          <div *ngIf="sidebarOpen">
+            
+            <span *ngIf="!lightTheme">Light Theme</span>
+            <span *ngIf="lightTheme">Dark Theme</span>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

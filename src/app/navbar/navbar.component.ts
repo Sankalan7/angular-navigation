@@ -7,6 +7,8 @@ import { Component, Input } from '@angular/core';
 })
 export class NavbarComponent {
   @Input() sidebarOpen: boolean = true;
+  @Input() lightTheme: boolean = true;
+
   baseHover: boolean = false;
   toggleBaseHover() {
     this.baseHover = !this.baseHover;
