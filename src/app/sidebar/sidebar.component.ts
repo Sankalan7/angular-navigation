@@ -11,7 +11,7 @@ export class SidebarComponent {
   @Output() lightThemeToggled = new EventEmitter<boolean>(); // Renamed event emitter
 
   sidebarOpen: boolean = true;
-  lightTheme = true;
+  lightTheme = false;
 
   toggleSidebarOpen() {
     this.sidebarOpen = !this.sidebarOpen;

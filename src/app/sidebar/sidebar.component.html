@@ -1,7 +1,7 @@
 <div class="fixed left-0 h-[100vh] flex flex-col z-50 bg-primary dark:bg-dark-primary overflow-y-auto transition-all duration-500" [ngClass]="sidebarOpen?'w-[250px]':'w-[75px]'">
   <div class="h-[4rem] flex items-center justify-center text-text dark:text-dark-text font-yanone text-center mx-4 border-b border-dashed border-secondary">
     <div class="items-center w-full h-full flex justify-between px-2" *ngIf="sidebarOpen">
-      <p class="text-xl flex justify-center items-center space-x-4">
+      <p class="text-xl flex justify-center items-center space-x-4 cursor-pointer" routerLink="/">
         <!-- <i class="fa fa-user text-green-500 mr-4"></i> -->
         <span class="px-3 py-1 text-text dark:text-dark-text text-xl font-maven font-bold bg-logo-green-500 rounded-lg">
           A
@@ -22,7 +22,9 @@
         routerLink="/{{item.routeLink}}"
         class="cursor-pointer mx-6 text-center flex space-x-4 py-2 text-sm text-text dark:text-dark-text rounded-lg"
         [class.hover:bg-primary-active-tab]="lightTheme"
-        [class.hover:bg-dark-active-tab]="!lightTheme">
+        [class.hover:bg-dark-active-tab]="!lightTheme"
+        title="{{item.label}}"
+        >
 
           <span><i class={{item.icon}}></i></span>
           <span *ngIf="sidebarOpen">{{item.label}}</span>
@@ -35,7 +37,8 @@
         (click)="toggleTheme()"
         class="cursor-pointer mx-6 text-center flex space-x-4 py-2 text-sm text-text dark:text-dark-text rounded-lg"
         [class.hover:bg-primary-active-tab]="lightTheme"
-        [class.hover:bg-dark-active-tab]="!lightTheme">
+        [class.hover:bg-dark-active-tab]="!lightTheme"
+        title="Change theme">
           <span *ngIf="!lightTheme"><i class="fa fa-sun"></i></span>
           <span *ngIf="lightTheme"><i class="fa fa-moon"></i></span>
           <div *ngIf="sidebarOpen">
